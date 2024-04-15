@@ -1,0 +1,252 @@
+/* Importer google Font _poppins*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{ box-sizing: border-box;
+   font-family: 'poppins',sans-serif;
+   padding:0;
+   margin: 0;
+}
+ /*  Input de recherche */
+.search {
+  height: 40vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+position: relative; 
+}   
+.search .content{
+
+color: white;
+ position: absolute; 
+ z-index: 2; 
+
+}
+.search img{
+width: 100%;
+height: 100%;
+object-fit: cover;
+position: absolute; 
+}
+
+.search h1{  
+   font-size:2.65rem;
+    font-weight: 600;
+      
+   }
+   .search p{  
+
+      font-size:1.65rem;
+       margin-top: 8px;
+         
+      }
+      .search-box{
+         height: 55px;
+         margin:45px 0 ; 
+         position: relative;
+         
+      }
+      .search-box i{
+      position: absolute;
+      top: 20px;
+      left: 15px;
+      color: #8d8d8d;
+      font-size:23px ;
+         
+      }
+      input,button,i{
+         border: none;
+         outline: none;
+         border-radius: 5px;
+      }
+      .search-box input{
+         width: 100%;
+         height: 100%;
+         padding-left:55px ;
+        
+      }
+ /*  La lange et la taille */
+ .lang-taille{ z-index: 6;
+color: snow;
+width: 250px;
+height: 200px;
+padding: 50px;
+position: relative;
+left:500px;
+bottom: -16px;
+
+}
+.lang-taille #lang{ 
+display: block;
+
+width: 150px;
+height: 40px;
+margin: 6px;
+border-radius: 9px;
+list-style: none;
+
+}
+.lang-taille #taille{ 
+  display: block;
+  background: rgb(208, 255, 0);
+  width: 150px;
+height: 40px;
+margin: 6px;
+border-radius: 9px;
+}
+
+       /*  Gallery */
+      .gallely {
+
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         }
+
+      .gallely .images{
+     gap: 15px;
+     margin-top: 20px;
+     max-width:95%;
+     columns: 5 430px;
+   
+     margin-right: 15px;  
+      }
+      .images .card{
+         overflow: hidden;
+         margin-bottom: 15px;
+         list-style: none;
+        
+         position: relative;
+                  
+               }
+
+           .card .details .photographe{
+            color: white;
+       }
+     .card .details .photographe i{
+      margin-right: 15px;
+        font-size: 19px;
+       }
+       .card .details button{
+        color: snow;
+         border-radius: 10px;
+         padding: 3px 4px;
+         cursor: pointer;
+         background-color: green;
+         width: 150px;
+         height: 35px;
+         font-size: 18px;
+          }
+          
+     .images .card .details{
+        z-index: 1;
+           bottom: -60px;
+          position: absolute;
+           background-image: linear-gradient(0deg,rgb(0,0,0.7),transparent);
+           width: 100%;
+         padding: 15px 20px;
+           display: flex;
+         align-items:center;
+         justify-content:space-between;
+         transition: bottom 0.1s ease;
+                     
+                  }
+                  .images .card:hover .details{
+                     bottom: 0;
+                    
+                               
+                             }
+          .images img{
+
+            width: 100%;
+                     
+                  }
+ /*  Button Gallely */
+      .gallely .btn{
+        background-color: rgb(160, 116, 193);
+        color: white;
+        font-size: 20px;
+        padding: 6px;
+        margin: 45px 0;
+        cursor: pointer;
+             
+          }
+          /*  Modale pour le telecharmemet */
+ .lightbox{
+
+   position: fixed; 
+    z-index: 5;
+     background: rgb(0, 0, 0,0.65);
+     width: 100%;
+     height: 100%;
+     display: none; /*Cacher par defaut */
+
+          }
+
+          .wrapper header {
+            margin-top: 200px;
+         padding: 12px;
+         
+           display: flex;
+           align-items: center;
+           justify-content: space-between;
+
+            
+                 }
+    .lightbox .wrapper{
+      
+      padding: 25px;
+      position: absolute;
+
+      left: 50%;
+      top: 30%;
+      background: white;
+      width: 100%;
+      max-width: 850px;
+      transform: translate(-50%,-50%);
+
+                 }
+       .wrapper .preview-img .img{
+         margin-top: 20px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         max-width:100hv;
+         max-height: 70vh;
+
+                 }
+    .wrapper .preview-img .img img{
+      
+
+      
+        max-width:90hv;
+        max-height: 65vh;
+                          }
+       header .photographe i{
+      
+         font-size: 30px;
+         padding: 5px;
+      color: rgb(47, 210, 255);
+      }
+        header .photographe span{
+         font-size: 30px;
+         padding: 5px;
+
+      
+    }          
+     header  .buttons i{
+      width: 40px;
+      height: 40px;
+      background-color: #8a6cff;
+      font-size: 30px;
+      color: whitesmoke;
+    padding-left: 6px;
+   line-height: 40px;
+      
+     }                 
+       .buttons i:last-child{
+      background-color :rgba(40, 40, 32, 0.658);
+      font-size: 30px;
+   color: whitesmoke;
+   margin-left: 40px;
+     }   
+
