@@ -181,7 +181,11 @@ border-radius: 9px;
      display: none; /*Cacher par defaut */
 
           }
+          .showImage{
 
+            display: block;
+         
+                   }
           .wrapper header {
             margin-top: 200px;
          padding: 12px;
@@ -189,7 +193,7 @@ border-radius: 9px;
            display: flex;
            align-items: center;
            justify-content: space-between;
-
+          
             
                  }
     .lightbox .wrapper{

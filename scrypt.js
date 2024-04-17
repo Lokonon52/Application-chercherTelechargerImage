@@ -43,7 +43,7 @@ const generateHTML=(images)=>{
  */
  let TabImgLi=''; 
  
-  TabImgLi=images.map(img=>{ return `<li  class="card"> <img src="${img.src.large2x}" alt="">
+  TabImgLi=images.map(img=>{ return `<li  class="card" onclick='showLight("${img.photographer}","${img.src.large2x}")' > <img src="${img.src.large2x}" alt="">
     <div class="details">
        <div class="photographe">
        <i class="fa-solid fa-camera-retro"></i><span>${img.photographer}</span>
@@ -123,5 +123,35 @@ a.remove();
        
  
 }
+//affichage de mod
+ let lightbox=document.querySelector(".lightbox");
+ const lightdownload=document.querySelector(".fa-upload")// btn telechargement de mod
+console.log(lightbox);
+
+ const showLight=(name,image)=>{
+    lightbox.classList.add('showImage');
+    lightbox.querySelector('img').src=image;
+    lightbox.querySelector('span').innerText=name;
+     lightdownload.setAttribute('img-data',image);
+    document.body.style.overflow='hidden';
+   
+
+ }
+//fermer de mod
+const lightclose=document.querySelector(".fa-xmark")
+ lightclose.addEventListener("click",()=>{
+    lightbox.classList.remove('showImage');
+    document.body.style.overflow='auto';
+
+ })
+
+//fermer de mod
+
 
  
+lightdownload.addEventListener("click",(e)=>{
+ console.log(e.target);
+ console.log(e.target.dataset.img);
+
+ })
+
