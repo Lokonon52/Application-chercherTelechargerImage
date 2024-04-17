@@ -87,7 +87,7 @@ list-style: none;
 }
 .lang-taille #taille{ 
   display: block;
-  background: rgb(208, 255, 0);
+  
   width: 150px;
 height: 40px;
 margin: 6px;

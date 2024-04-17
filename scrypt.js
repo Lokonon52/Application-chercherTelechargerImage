@@ -37,6 +37,7 @@ taille.addEventListener('change',()=>{
     size=taille.value;
     
 })
+//_______________________________________________________________________________________________________
 const generateHTML=(images)=>{  
     /* 
  AVEC map
@@ -74,24 +75,25 @@ const generateHTML=(images)=>{
  
  
     }
+    //_______________________________________________________________________________________________________
 function getImages(apiURL){  
 fetch(apiURL,{ 
     headers:{ Authorization:apiKey}
 }  ).then(res=>res.json()).then(data=>{generateHTML(data.photos)   /*Appel de la fonction  generateHTML */;}).catch(()=>{alert("Echec d'image ")})
 
 }
-
+//_______________________________________________________________________________________________________
 
 const plusImage=()=>{  
     currentPage++; //Augmenter la page
     let apiUrl=`https://api.pexels.com/v1/curated?page=${currentPage}&size=${size}&per_page=${perPage}`
     apiUrl=seachTerm?`https://api.pexels.com/v1/search?query=${seachTerm}&locale=${lang}&size=${size}&page=${currentPage}&per_page=${perPage}`:apiUrl
-    getImages(apiUrl);   //Appel de la fonction getImages avec btn
+    getImages(apiUrl);   //Appel de la fonction getImages dans plus Image
 
 }
 getImages(`https://api.pexels.com/v1/curated?page=${currentPage}&size=${size}&per_page=${perPage}`); //Appel de la fonction lors du chargement
-btnloader.addEventListener('click',plusImage)
-
+btnloader.addEventListener('click',plusImage)// APPEL de fonction plusImage  avec button charger plus
+//_______________________________________________________________________________________________________
 const rechercheImage=(e)=>{  
 // si on valide input vide
 if (e.key ==='') { return seachTerm=null;
@@ -102,13 +104,12 @@ if (e.key ==='') { return seachTerm=null;
         currentPage=1;
 seachTerm=e.target.value;
 getImages(`https://api.pexels.com/v1/search?query=${seachTerm}&locale=${lang}&size=${size}&page=${currentPage}&per_page=${perPage}`);
-console.log(seachTerm);
     }
     
    }
-
-searchInput.addEventListener('keyup',rechercheImage );
-
+//_______________________________________________________________________________________________________
+searchInput.addEventListener('keyup',rechercheImage );// APPEL de fonction rechercheImage   dans input 
+//_______________________________________________________________________________________________________
 const telecharger=(imgUrl)=>{
 fetch(imgUrl).then(res=>res.blob()).then(blob=> {
     //Convertire l'image reçue par blob puis creer un lien de urlimage et click sur le lien par le biais du button *
@@ -122,7 +123,9 @@ a.remove();
      }).catch(()=>alert('Erreur de télechargement'));
        
  
-}
+}  // appel  de fonction telecharger est au niveau de chaque   div .card 
+
+//_______________________________________________________________________________________________________
 //affichage de mod
  let lightbox=document.querySelector(".lightbox");
  const lightdownload=document.querySelector(".fa-upload")// btn telechargement de mod
@@ -132,7 +135,7 @@ console.log(lightbox);
     lightbox.classList.add('showImage');
     lightbox.querySelector('img').src=image;
     lightbox.querySelector('span').innerText=name;
-     lightdownload.setAttribute('img-data',image);
+     lightdownload.setAttribute('data-img',image);// Pour dataset  voir ligne 157
     document.body.style.overflow='hidden';
    
 
@@ -145,13 +148,14 @@ const lightclose=document.querySelector(".fa-xmark")
 
  })
 
-//fermer de mod
+//télecharger  de mod
 
 
  
 lightdownload.addEventListener("click",(e)=>{
- console.log(e.target);
+ 
  console.log(e.target.dataset.img);
+ telecharger(e.target.dataset.img);// APPEL de foncvtion  telecharger  dans modale
 
  })
 
